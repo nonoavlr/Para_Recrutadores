@@ -1,0 +1,17 @@
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\bin\Debug\netcoreapp3.1\Loja.Persistency.deps.json
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\bin\Debug\netcoreapp3.1\Loja.Persistency.dll
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\obj\Debug\netcoreapp3.1\Loja.Persistency.AssemblyInfoInputs.cache
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\obj\Debug\netcoreapp3.1\Loja.Persistency.AssemblyInfo.cs
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\bin\Debug\netcoreapp3.1\Loja.Persistency.runtimeconfig.json
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\bin\Debug\netcoreapp3.1\Loja.Persistency.runtimeconfig.dev.json
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\obj\Debug\netcoreapp3.1\Loja.Persistency.csprojAssemblyReference.cache
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\obj\Debug\netcoreapp3.1\Loja.Persistency.genruntimeconfig.cache
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\bin\Debug\netcoreapp3.1\Loja.Persistency.pdb
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\bin\Debug\netcoreapp3.1\Loja.Application.dll
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\bin\Debug\netcoreapp3.1\Loja.Domain.dll
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\bin\Debug\netcoreapp3.1\Loja.Application.pdb
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\bin\Debug\netcoreapp3.1\Loja.Domain.pdb
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\obj\Debug\netcoreapp3.1\Loja.Persistency.csproj.CoreCompileInputs.cache
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\obj\Debug\netcoreapp3.1\Loja.Persistency.csproj.CopyComplete
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\obj\Debug\netcoreapp3.1\Loja.Persistency.dll
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Persistency\obj\Debug\netcoreapp3.1\Loja.Persistency.pdb
