@@ -40,7 +40,13 @@ namespace Loja.Persistency.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("District")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("LastModified")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Number")
@@ -48,6 +54,9 @@ namespace Loja.Persistency.Migrations
 
                     b.Property<string>("State")
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("AddressID");
 
@@ -80,6 +89,9 @@ namespace Loja.Persistency.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("UserID")
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("isActive")
                         .HasColumnType("INTEGER");
 
@@ -89,6 +101,25 @@ namespace Loja.Persistency.Migrations
                     b.HasKey("ClientID");
 
                     b.ToTable("Client");
+                });
+
+            modelBuilder.Entity("Loja.Domain.Item", b =>
+                {
+                    b.Property<int>("ItemID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("OrderID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ItemID");
+
+                    b.HasIndex("OrderID");
+
+                    b.ToTable("Item");
                 });
 
             modelBuilder.Entity("Loja.Order", b =>
@@ -102,9 +133,6 @@ namespace Loja.Persistency.Migrations
 
                     b.Property<int>("ClientID")
                         .HasColumnType("INTEGER");
-
-                    b.Property<double>("Total")
-                        .HasColumnType("REAL");
 
                     b.Property<string>("TypePayment")
                         .HasColumnType("TEXT");
@@ -120,14 +148,23 @@ namespace Loja.Persistency.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("ClientID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("LastModified")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("OrderID")
-                        .HasColumnType("INTEGER");
 
                     b.Property<double>("Price")
                         .HasColumnType("REAL");
@@ -138,9 +175,15 @@ namespace Loja.Persistency.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Type")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("ProductID");
 
-                    b.HasIndex("OrderID");
+                    b.HasIndex("ClientID");
 
                     b.ToTable("Product");
                 });
@@ -346,6 +389,21 @@ namespace Loja.Persistency.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Loja.Domain.Item", b =>
+                {
+                    b.HasOne("Loja.Order", "Order")
+                        .WithMany("Items")
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Loja.Product", "Product")
+                        .WithMany("Items")
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Loja.Order", b =>
                 {
                     b.HasOne("Loja.Address", "AddressShip")
@@ -363,9 +421,9 @@ namespace Loja.Persistency.Migrations
 
             modelBuilder.Entity("Loja.Product", b =>
                 {
-                    b.HasOne("Loja.Order", "Order")
+                    b.HasOne("Loja.Client", "Client")
                         .WithMany("Products")
-                        .HasForeignKey("OrderID")
+                        .HasForeignKey("ClientID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

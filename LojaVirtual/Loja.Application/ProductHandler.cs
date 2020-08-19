@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,29 +11,62 @@ namespace Loja.Application
     {
         private readonly IApplicationDbContext db;
         public ProductHandler(IApplicationDbContext db) => this.db = db;
-        public Task<int> Delete(int userID, int ID)
+        public async Task<int> Delete(string userID, int ID)
         {
-            throw new NotImplementedException();
+            var toDelete = await db.Product.Where(c => c.Client.UserID == userID).FirstOrDefaultAsync();
+
+            if(toDelete.ToString() != "0")
+            {
+                toDelete.isActive = false;
+                return await db.SaveChangesAsync();
+            }
+
+            return await Task.FromResult(1);
         }
 
-        public Task<Product> Get(int ID)
+        public async Task<Product> Get(int ID)
         {
-            throw new NotImplementedException();
+            return await db.Product
+                .Where(c => c.ProductID == ID)
+                .Include(c => c.Client)
+                .Include(c => c.Items)
+                .FirstOrDefaultAsync();
         }
 
-        public Task<Product[]> GetAll(int userID)
+        public async Task<Product[]> GetAll(string userID)
         {
-            throw new NotImplementedException();
+            return await db.Product
+                .Include(c => c.Client)
+                .Include(c => c.Items)
+                .ToArrayAsync();
         }
 
-        public Task<int> Post(int userID)
+        public async Task<int> Post(Product entity)
         {
-            throw new NotImplementedException();
+            entity.CreatedOn = DateTime.Now;
+            db.Product.Add(entity);
+            return await db.SaveChangesAsync();
         }
 
-        public Task<int> Put(int userID, int ID)
+        public async Task<int> Put(Product newEntity, string userID, int ID)
         {
-            throw new NotImplementedException();
+            var toAlter = await db.Product.Where(c => c.ProductID == ID && c.Client.UserID == userID).FirstOrDefaultAsync();
+
+            if(toAlter.Client.isAdmin == true)
+            {
+                toAlter.Description = newEntity.Description ?? toAlter.Description;
+                toAlter.Gender = newEntity.Gender ?? toAlter.Gender;
+                toAlter.isActive = newEntity.isActive;
+                toAlter.Name = newEntity.Name ?? toAlter.Name;
+                toAlter.Price = newEntity.Price;
+                toAlter.Stock = newEntity.Stock;
+                toAlter.Title = newEntity.Title ?? toAlter.Title;
+                toAlter.Type = newEntity.Type ?? toAlter.Type;
+                toAlter.LastModified = DateTime.Now;
+                return await db.SaveChangesAsync();
+            }
+
+            return await Task.FromResult(1);
         }
     }
 }

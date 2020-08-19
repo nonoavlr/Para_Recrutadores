@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,29 +11,69 @@ namespace Loja.Application
     {
         private readonly IApplicationDbContext db;
         public AddressHandler(IApplicationDbContext db) => this.db = db;
-        public Task<int> Delete(int userID, int ID)
+        public async Task<int> Delete(string userID, int ID)
         {
-            throw new NotImplementedException();
+            var toDelete = await  db.Address.Where(c => c.AddressID == ID).FirstOrDefaultAsync();
+            
+            if(toDelete.ToString() != "0" && toDelete.Client.UserID == userID)
+            {
+                toDelete.isActive = false;
+                return await db.SaveChangesAsync();
+            }
+
+            return await Task.FromResult(1);
         }
 
-        public Task<Address> Get(int ID)
+        public async Task<Address> Get(int ID)
         {
-            throw new NotImplementedException();
+            return await db.Address.Where(c => c.AddressID == ID && c.Client.isActive == true)
+                .Include(c => c.Client)
+                .Include(c => c.Orders)
+                .FirstOrDefaultAsync();
         }
 
-        public Task<Address[]> GetAll(int userID)
+        public async Task<Address[]> GetAll(string userID)
         {
-            throw new NotImplementedException();
+            var isAdmin = await db.Client.Where(c => c.UserID == userID && c.isAdmin == true).FirstOrDefaultAsync();
+
+            if (isAdmin.ToString() != "0")
+            {
+                return await db.Address
+                    .Where(c => c.Client.isActive == true)
+                    .Include(c => c.Client)
+                    .Include(c => c.Orders)
+                    .ToArrayAsync();
+            }
+
+            return null;
         }
 
-        public Task<int> Post(int userID)
+        public async Task<int> Post(Address entity)
         {
-            throw new NotImplementedException();
+            entity.CreatedOn = DateTime.Now;
+            db.Address.Add(entity);
+            return await db.SaveChangesAsync();
         }
 
-        public Task<int> Put(int userID, int ID)
+        public async Task<int> Put(Address newEntity, string userID, int ID)
         {
-            throw new NotImplementedException();
+            var toAlter = await db.Address.Where(c => c.AddressID == ID && c.Client.UserID == userID).FirstOrDefaultAsync();
+
+            if(toAlter.ToString() != "0")
+            {
+                toAlter.AddressName = newEntity.AddressName ?? toAlter.AddressName;
+                toAlter.AddressType = newEntity.AddressType ?? toAlter.AddressType;
+                toAlter.City = newEntity.City ?? toAlter.City;
+                toAlter.Complemention = newEntity.Complemention ?? toAlter.Complemention;
+                toAlter.Country = newEntity.Country ?? toAlter.Country;
+                toAlter.District = newEntity.District ?? toAlter.District;
+                toAlter.Number = newEntity.Number ?? toAlter.Number;
+                toAlter.State = newEntity.Number ?? toAlter.Number;
+                toAlter.LastModified = DateTime.Now;
+                return await db.SaveChangesAsync();
+            }
+
+            return await Task.FromResult(1);
         }
     }
 }

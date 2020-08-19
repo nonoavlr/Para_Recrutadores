@@ -11,15 +11,15 @@ namespace Loja.Application
     {
         private readonly IApplicationDbContext db;
         public ClientHandler(IApplicationDbContext db) => this.db = db;
-        public async Task<int> Delete(int userID, int ID)
+        public async Task<int> Delete(string userID, int ID)
         {
             var clientDesative = db.Client.Where(c => c.ClientID == ID).FirstOrDefault();
-            var clientAdmin = db.Client.Where(c => c.ClientID == userID).FirstOrDefault();
+            var clientAdmin = db.Client.Where(c => c.UserID == userID).FirstOrDefault();
 
             if(clientDesative.ToString() != "0" && clientAdmin.isAdmin == true)
             {
                 clientDesative.isActive = false;
-                return await Task.FromResult(0);
+                return await db.SaveChangesAsync();
             }
 
             return await Task.FromResult(1);
@@ -33,22 +33,43 @@ namespace Loja.Application
                         .SingleOrDefaultAsync(c => c.ClientID == ID);
         }
 
-        public async Task<Client[]> GetAll(int userID)
+        public async Task<Client[]> GetAll(string userID)
         {
-            return await db.Client
+            var isAdmin = db.Client.Where(c => c.UserID == userID).FirstOrDefault();
+
+            if(isAdmin.isAdmin == true)
+            {
+                return await db.Client
+                        .Where(c => c.isActive == true)
                         .Include(p => p.Addresses)
                         .Include(p => p.Orders)
                         .ToArrayAsync();
+            }
+
+            return null;
         }
 
-        public Task<int> Post(int userID)
+        public async Task<int> Post(Client entity)
         {
-            throw new NotImplementedException();
+            entity.CreatedOn = DateTime.Now;
+            db.Client.Add(entity);
+            return await db.SaveChangesAsync();
         }
 
-        public Task<int> Put(int userID, int ID)
+        public async Task<int> Put(Client newEntity, string userID, int ID)
         {
-            throw new NotImplementedException();
+            var toAlter = await db.Client.Where(c => c.UserID == userID).FirstOrDefaultAsync();
+
+            if(toAlter.ToString() != "0")
+            {
+                toAlter.BirthDate = newEntity.BirthDate;
+                toAlter.Name = newEntity.Name ?? toAlter.Name;
+                toAlter.LastName = newEntity.LastName ?? toAlter.LastName;
+                toAlter.LastModified = DateTime.Now;
+                return await db.SaveChangesAsync();
+            }
+
+            return await Task.FromResult(1);
         }
     }
 }

@@ -52,6 +52,7 @@ namespace Loja.Persistency.Migrations
                 {
                     ClientID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    UserID = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     CPF = table.Column<string>(nullable: true),
@@ -186,7 +187,10 @@ namespace Loja.Persistency.Migrations
                     City = table.Column<string>(nullable: true),
                     State = table.Column<string>(nullable: true),
                     Country = table.Column<string>(nullable: true),
-                    ClientID = table.Column<int>(nullable: false)
+                    ClientID = table.Column<int>(nullable: false),
+                    isActive = table.Column<bool>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    LastModified = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -200,13 +204,41 @@ namespace Loja.Persistency.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Product",
+                columns: table => new
+                {
+                    ProductID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Price = table.Column<double>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Stock = table.Column<int>(nullable: false),
+                    Gender = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
+                    ClientID = table.Column<int>(nullable: false),
+                    isActive = table.Column<bool>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    LastModified = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Product", x => x.ProductID);
+                    table.ForeignKey(
+                        name: "FK_Product_Client_ClientID",
+                        column: x => x.ClientID,
+                        principalTable: "Client",
+                        principalColumn: "ClientID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Order",
                 columns: table => new
                 {
                     OrderID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     TypePayment = table.Column<string>(nullable: true),
-                    Total = table.Column<double>(nullable: false),
                     AddressID = table.Column<int>(nullable: false),
                     ClientID = table.Column<int>(nullable: false)
                 },
@@ -228,26 +260,28 @@ namespace Loja.Persistency.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Product",
+                name: "Item",
                 columns: table => new
                 {
-                    ProductID = table.Column<int>(nullable: false)
+                    ItemID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    Price = table.Column<double>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    Stock = table.Column<int>(nullable: false),
-                    OrderID = table.Column<int>(nullable: false)
+                    OrderID = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.ProductID);
+                    table.PrimaryKey("PK_Item", x => x.ItemID);
                     table.ForeignKey(
-                        name: "FK_Product_Order_OrderID",
+                        name: "FK_Item_Order_OrderID",
                         column: x => x.OrderID,
                         principalTable: "Order",
                         principalColumn: "OrderID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Item_Product_OrderID",
+                        column: x => x.OrderID,
+                        principalTable: "Product",
+                        principalColumn: "ProductID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -294,9 +328,14 @@ namespace Loja.Persistency.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Product_OrderID",
-                table: "Product",
+                name: "IX_Item_OrderID",
+                table: "Item",
                 column: "OrderID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_ClientID",
+                table: "Product",
+                column: "ClientID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -317,7 +356,7 @@ namespace Loja.Persistency.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Product");
+                name: "Item");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -327,6 +366,9 @@ namespace Loja.Persistency.Migrations
 
             migrationBuilder.DropTable(
                 name: "Order");
+
+            migrationBuilder.DropTable(
+                name: "Product");
 
             migrationBuilder.DropTable(
                 name: "Address");

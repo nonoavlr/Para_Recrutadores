@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Loja.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -9,9 +10,9 @@ namespace Loja
     public class Order
     {
         public int OrderID { get; set; }
-        public virtual List<Product> Products { get; set; }
+        public virtual List<Item> Items { get; set; }
         public string TypePayment { get; set; }
-        public double Total { get => Total; set => Products.Sum(x => x.Price); }
+        public double Total { get { return this.Items.Sum(c => c.Amount); } }
         public int AddressID { get; set; }
         public virtual Address AddressShip { get; set; }
         public int ClientID { get; set; }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Loja.Domain;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,6 +30,12 @@ namespace Loja.Application
 
             services.AddScoped<IEntityCrudHandler<Product>>(
                 serviceProvider => new ProductHandler(
+                    serviceProvider.GetService<IApplicationDbContext>()
+                )
+            );
+
+            services.AddScoped<IEntityCrudHandler<Item>>(
+                serviceProvider => new ItemHandler(
                     serviceProvider.GetService<IApplicationDbContext>()
                 )
             );

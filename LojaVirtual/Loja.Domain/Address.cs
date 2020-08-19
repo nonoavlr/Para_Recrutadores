@@ -16,6 +16,9 @@ namespace Loja
         public string State { get; set; }
         public string Country { get; set; }
         public int ClientID { get; set; }
+        public bool isActive { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime LastModified { get; set; }
         public virtual Client Client { get; set; }
         public virtual List<Order> Orders { get; set; }
     }
