@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,22 +19,52 @@ namespace Loja.Application
 
         public async Task<Order> Get(int ID)
         {
-            throw new NotImplementedException();
+            return await db.Order.Where(c => c.OrderID == ID)
+                .Include(c => c.Items)
+                .Include(c => c.Client)
+                .Include(c => c.AddressShip)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<Order[]> GetAll(string userID)
         {
-            throw new NotImplementedException();
+            var isAdmin = await db.Client.Where(c => c.UserID == userID).FirstOrDefaultAsync();
+
+            if(isAdmin.isAdmin == true)
+            {
+                return await db.Order
+                    .Include(c => c.Items)
+                    .Include(c => c.Client)
+                    .Include(c => c.AddressShip)
+                    .ToArrayAsync();
+            }
+
+            return await db.Order.Where(c => c.Client.UserID == userID)
+                    .Include(c => c.Items)
+                    .Include(c => c.Client)
+                    .Include(c => c.AddressShip)
+                    .ToArrayAsync();
         }
 
         public async Task<int> Post(Order entity)
         {
-            throw new NotImplementedException();
+            entity.CreatedOn = DateTime.Now;
+            db.Order.Add(entity);
+            return await db.SaveChangesAsync();
         }
 
         public async Task<int> Put(Order entity, string userID, int ID)
         {
-            throw new NotImplementedException();
+            var toAlter = await db.Order.Where(c => c.OrderID == ID).FirstOrDefaultAsync();
+
+            if(toAlter.ToString() != "0")
+            {
+                toAlter.Items = entity.Items;
+                toAlter.LastModified = DateTime.Now;
+                return await db.SaveChangesAsync();
+            }
+
+            return await Task.FromResult(1);
         }
     }
 }

@@ -134,6 +134,15 @@ namespace Loja.Persistency.Migrations
                     b.Property<int>("ClientID")
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("TypePayment")
                         .HasColumnType("TEXT");
 

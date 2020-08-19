@@ -239,8 +239,11 @@ namespace Loja.Persistency.Migrations
                     OrderID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     TypePayment = table.Column<string>(nullable: true),
+                    Status = table.Column<string>(nullable: true),
                     AddressID = table.Column<int>(nullable: false),
-                    ClientID = table.Column<int>(nullable: false)
+                    ClientID = table.Column<int>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    LastModified = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

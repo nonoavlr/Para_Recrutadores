@@ -1,6 +1,8 @@
 ﻿using Loja.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,29 +12,46 @@ namespace Loja.Application
     {
         private readonly IApplicationDbContext db;
         public ItemHandler(IApplicationDbContext db) => this.db = db;
-        public Task<int> Delete(string userID, int ID)
+        public async Task<int> Delete(string userID, int ID)
         {
-            throw new NotImplementedException();
+            var toDelete = await db.Item.Where(c => c.ItemID == ID).FirstOrDefaultAsync();
+            db.Item.Remove(toDelete);
+            return await db.SaveChangesAsync();
         }
 
-        public Task<Item> Get(int ID)
+        public async Task<Item> Get(int ID)
         {
-            throw new NotImplementedException();
+            return await db.Item.Where(c => c.ItemID == ID)
+                .Include(c => c.Order)
+                .Include(c => c.Product)
+                .FirstOrDefaultAsync();
         }
 
-        public Task<Item[]> GetAll(string userID)
+        public async Task<Item[]> GetAll(string userID)
         {
-            throw new NotImplementedException();
+            return await db.Item.Where(c => c.Order.Client.UserID == userID)
+                .Include(c => c.Order)
+                .Include(c => c.Product)
+                .ToArrayAsync();
         }
 
-        public Task<int> Post(Item entity)
+        public async Task<int> Post(Item entity)
         {
-            throw new NotImplementedException();
+            db.Item.Add(entity);
+            return await db.SaveChangesAsync();
         }
 
-        public Task<int> Put(Item entity, string userID, int ID)
+        public async Task<int> Put(Item entity, string userID, int ID)
         {
-            throw new NotImplementedException();
+            var toAlter = await db.Item.Where(c => c.ItemID == ID).FirstOrDefaultAsync();
+
+            if(toAlter.ToString() != "0")
+            {
+                toAlter.Quantity = entity.Quantity;
+                return await db.SaveChangesAsync();
+            }
+
+            return await Task.FromResult(1);
         }
     }
 }
