@@ -8,6 +8,8 @@ import { About } from './components/Items/About';
 import { Feminino } from './components/Items/Feminino';
 import { Masculino } from './components/Items/Masculino';
 import { OffPrice } from './components/Items/OffPrice';
+import { Entrar } from './components/Identity/Entrar';
+import { Registrar } from './components/Identity/Registrar';
 
 import './custom.css'
 
@@ -30,6 +32,8 @@ export default class App extends Component {
         <Route path='/Feminino' component={Feminino} />
         <Route path='/Masculino' component={Masculino} />
         <Route path='/off-price' component={OffPrice} />
+        <Route path='/Login' component={Entrar}/>
+        <Route path='/Register' component={Registrar} />
         <Route path='/fetch-data' component={FetchData} />
       </Layout>
     );

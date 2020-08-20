@@ -8,7 +8,7 @@ using System;
 
 namespace Loja.Persistency
 {
-    public class LojaDbContext : IdentityDbContext, IApplicationDbContext
+    public class LojaDbContext : DbContext, IApplicationDbContext
     {
         public LojaDbContext(DbContextOptions<LojaDbContext> options) : base(options) { }
         public DbSet<Client> Client { get; set; }

@@ -59,8 +59,9 @@ namespace Loja.React.Controllers
 
         // POST api/<ProductsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(Product entity)
         {
+
         }
 
         // PUT api/<ProductsController>/5
