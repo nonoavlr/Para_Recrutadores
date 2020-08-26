@@ -32,9 +32,9 @@ namespace Loja.Application
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<Address[]> GetAll(string userID)
+        public async Task<Address[]> GetAll(int ID)
         {
-            var isAdmin = await db.Client.Where(c => c.UserID == userID && c.isAdmin == true).FirstOrDefaultAsync();
+            var isAdmin = await db.Client.Where(c => c.ClientID == ID && c.isAdmin == true).FirstOrDefaultAsync();
 
             if (isAdmin.ToString() != "0")
             {

@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,18 +28,20 @@ namespace Loja.Application
 
         public async Task<Product> Get(int ID)
         {
+
             return await db.Product
                 .Where(c => c.ProductID == ID)
                 .Include(c => c.Client)
                 .Include(c => c.Items)
+                .Include(c => c.StockSize)
+                .Include(c => c.Database)
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<Product[]> GetAll(string userID)
+        public async Task<Product[]> GetAll(int ID)
         {
             return await db.Product
-                .Include(c => c.Client)
-                .Include(c => c.Items)
+                .Where(c => c.isActive == true)
                 .ToArrayAsync();
         }
 
@@ -59,7 +63,6 @@ namespace Loja.Application
                 toAlter.isActive = newEntity.isActive;
                 toAlter.Name = newEntity.Name ?? toAlter.Name;
                 toAlter.Price = newEntity.Price;
-                toAlter.Stock = newEntity.Stock;
                 toAlter.Title = newEntity.Title ?? toAlter.Title;
                 toAlter.Type = newEntity.Type ?? toAlter.Type;
                 toAlter.LastModified = DateTime.Now;

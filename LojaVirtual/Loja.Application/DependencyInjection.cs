@@ -40,6 +40,18 @@ namespace Loja.Application
                 )
             );
 
+            services.AddScoped<IEntityCrudHandler<Database>>(
+                serviceProvider => new DatabaseHandler(
+                    serviceProvider.GetService<IApplicationDbContext>()
+                )
+            );
+
+            services.AddScoped<IEntityCrudHandler<StockSize>>(
+                serviceProvider => new StockSizeHandler(
+                    serviceProvider.GetService<IApplicationDbContext>()
+                )
+            );
+
             return services;
         }
     }

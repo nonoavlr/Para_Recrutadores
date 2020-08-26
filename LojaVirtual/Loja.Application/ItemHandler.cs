@@ -27,9 +27,9 @@ namespace Loja.Application
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<Item[]> GetAll(string userID)
+        public async Task<Item[]> GetAll(int ID)
         {
-            return await db.Item.Where(c => c.Order.Client.UserID == userID)
+            return await db.Item.Where(c => c.Order.OrderID == ID)
                 .Include(c => c.Order)
                 .Include(c => c.Product)
                 .ToArrayAsync();

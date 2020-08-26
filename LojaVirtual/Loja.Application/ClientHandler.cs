@@ -33,9 +33,9 @@ namespace Loja.Application
                         .SingleOrDefaultAsync(c => c.ClientID == ID);
         }
 
-        public async Task<Client[]> GetAll(string userID)
+        public async Task<Client[]> GetAll(int ID)
         {
-            var isAdmin = db.Client.Where(c => c.UserID == userID).FirstOrDefault();
+            var isAdmin = db.Client.Where(c => c.ClientID == ID).FirstOrDefault();
 
             if(isAdmin.isAdmin == true)
             {

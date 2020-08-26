@@ -26,9 +26,9 @@ namespace Loja.Application
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<Order[]> GetAll(string userID)
+        public async Task<Order[]> GetAll(int ID)
         {
-            var isAdmin = await db.Client.Where(c => c.UserID == userID).FirstOrDefaultAsync();
+            var isAdmin = await db.Client.Where(c => c.ClientID == ID).FirstOrDefaultAsync();
 
             if(isAdmin.isAdmin == true)
             {
@@ -39,7 +39,7 @@ namespace Loja.Application
                     .ToArrayAsync();
             }
 
-            return await db.Order.Where(c => c.Client.UserID == userID)
+            return await db.Order.Where(c => c.Client.ClientID == ID)
                     .Include(c => c.Items)
                     .Include(c => c.Client)
                     .Include(c => c.AddressShip)

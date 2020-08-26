@@ -1,5 +1,6 @@
 ﻿using Loja.Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,6 +16,8 @@ namespace Loja.Application
         DbSet<Address> Address { get; set; }
         DbSet<Order> Order { get; set; }
         DbSet<Item> Item { get; set; }
+        DbSet<Database> Databases {get;set;}
+        DbSet<StockSize> StockSize { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
