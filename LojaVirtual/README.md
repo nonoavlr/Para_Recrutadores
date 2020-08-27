@@ -2,12 +2,6 @@
 
 Bem vindxs ao meu projeto-vitrine Loja-Virtual.
 
-Criei esse projeto com a intenção de demonstrar meus conhecimentos de desenvolvimento adquiridos durante meu curso.
-
-Apesar de ainda não ter experiência profissional na área, consigo oferecer uma amostra de tudo que estou aprendendo durante o ano. Sei que pode ser dificil contratar alguém sem experiência profissional na área mas aqui posso mostrar o que eu tenho aprendido, meu desempenho e a minha vontade de contribuir/aprender.
-
-Novo na área, posso absorver com maior facilidade o estilo de desenvolvimento da sua empresa e oferecer soluções alternativas para agregar no seu projeto.
-
 Agora vou explicar melhor como construí o projeto. Desde já, agradeço muito sua atenção.
 
 Back-end (Orientado a Objeto) - 3 Projetos{
@@ -40,11 +34,11 @@ Back-end (Orientado a Objeto) - 3 Projetos{
 }
 
 Front-End React{
-    Projeto criado a partir do ASP.NET.CORE para trabalhar o server-client. 
+    Projeto criado a partir do ASP.NET.CORE para trabalhar o front. 
 
-    Esta parte do projeto visa oferecer toda a navegação do usuário através dos React.Components.
+    Esta parte do projeto visa oferecer toda a navegação do usuário através do React.Js.
 
-    Os componentes conversarão diretamente com o Controller para a troca de informações e manipulação dos objetos através das funções Get, Post, Put e Delete. As funções conversarão diretamente com a Interface dos Handlers criados no projeto Application.
+    Os componentes conversarão diretamente com o Controller para a troca de informações e manipulação dos objetos através das funções (REST) Get, Post, Put e Delete. As funções conversarão diretamente com a interface dos Handlers criados no projeto Application em conexão com a persistencia.
 
     As duas injeções de dependência foram adicionadas na classe StartUp.
 }
