@@ -11,5 +11,7 @@ namespace Loja.Domain
         public string Size { get; set; }
         public int ProductID { get; set; }
         public virtual Product Product { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime LastModified { get; set; }
     }
 }

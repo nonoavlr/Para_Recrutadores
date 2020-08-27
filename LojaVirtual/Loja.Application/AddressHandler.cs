@@ -27,8 +27,6 @@ namespace Loja.Application
         public async Task<Address> Get(int ID)
         {
             return await db.Address.Where(c => c.AddressID == ID && c.Client.isActive == true)
-                .Include(c => c.Client)
-                .Include(c => c.Orders)
                 .FirstOrDefaultAsync();
         }
 
@@ -40,8 +38,6 @@ namespace Loja.Application
             {
                 return await db.Address
                     .Where(c => c.Client.isActive == true)
-                    .Include(c => c.Client)
-                    .Include(c => c.Orders)
                     .ToArrayAsync();
             }
 

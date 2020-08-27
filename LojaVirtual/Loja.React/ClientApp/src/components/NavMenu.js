@@ -34,18 +34,21 @@ export class NavMenu extends Component {
                         <NavLink tag={Link} className="text-dark" to="/About">A Marca</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink tag={Link} className="text-dark" to="/Items/Feminino">Feminino</NavLink>
+                        <NavLink tag={Link} className="text-dark" to="/Feminino">Feminino</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink tag={Link} className="text-dark" to="/Masculino">Masculino</NavLink>
+                                <NavLink tag={Link} className="text-dark" to="/Masculino">Masculino</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink tag={Link} className="text-dark" to="/Items/off-price">Off Price</NavLink>
+                        <NavLink tag={Link} className="text-dark" to="/off-price">Off Price</NavLink>
                     </NavItem>
                 </ul>
              </Collapse>
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
               <ul className="navbar-nav flex-grow">
+                <NavItem>
+                                <NavLink tag={Link} className="text-dark" to="/Cart"><i class="fas fa-shopping-cart"></i></NavLink>
+                </NavItem>
                 <NavItem> 
                   <NavLink tag={Link} className="text-dark" to="/Register">Registrar</NavLink>  
                 </NavItem>

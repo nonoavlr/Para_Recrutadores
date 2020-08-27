@@ -31,10 +31,6 @@ namespace Loja.Application
 
             return await db.Product
                 .Where(c => c.ProductID == ID)
-                .Include(c => c.Client)
-                .Include(c => c.Items)
-                .Include(c => c.StockSize)
-                .Include(c => c.Database)
                 .FirstOrDefaultAsync();
         }
 

@@ -12,9 +12,18 @@ namespace Loja.Application
     {
         private readonly IApplicationDbContext db;
         public DatabaseHandler(IApplicationDbContext db) => this.db = db;
-        public Task<int> Delete(string userID, int ID)
+        public async Task<int> Delete(string userID, int ID)
         {
-            throw new NotImplementedException();
+            var isAdmin = await db.Client.Where(c => c.UserID == userID).FirstOrDefaultAsync();
+
+            if(isAdmin.isAdmin == true)
+            {
+                var toDelete = await db.Databases.Where(c => c.DatabaseID == ID).FirstOrDefaultAsync();
+                db.Databases.Remove(toDelete);
+                return await db.SaveChangesAsync();
+            }
+
+            return await Task.FromResult(1);
         }
 
         public async Task<Database> Get(int ID)
@@ -22,9 +31,10 @@ namespace Loja.Application
             return await db.Databases.Where(c => c.DatabaseID == ID).FirstOrDefaultAsync();
         }
 
-        public Task<Database[]> GetAll(int ID)
+        public async Task<Database[]> GetAll(int ID)
         {
-            throw new NotImplementedException();
+            return await db.Databases
+                .ToArrayAsync();
         }
 
         public async Task<int> Post(Database entity)

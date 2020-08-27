@@ -11,18 +11,14 @@ namespace Loja.Application
     {
         private readonly IApplicationDbContext db;
         public OrderHandler(IApplicationDbContext db) => this.db = db;
-        public async Task<int> Delete(string userID, int ID)
-        {
-
+        public Task<int> Delete(string userID, int ID)
+        { 
             throw new NotImplementedException();
         }
 
         public async Task<Order> Get(int ID)
         {
             return await db.Order.Where(c => c.OrderID == ID)
-                .Include(c => c.Items)
-                .Include(c => c.Client)
-                .Include(c => c.AddressShip)
                 .FirstOrDefaultAsync();
         }
 
@@ -33,16 +29,10 @@ namespace Loja.Application
             if(isAdmin.isAdmin == true)
             {
                 return await db.Order
-                    .Include(c => c.Items)
-                    .Include(c => c.Client)
-                    .Include(c => c.AddressShip)
                     .ToArrayAsync();
             }
 
             return await db.Order.Where(c => c.Client.ClientID == ID)
-                    .Include(c => c.Items)
-                    .Include(c => c.Client)
-                    .Include(c => c.AddressShip)
                     .ToArrayAsync();
         }
 

@@ -22,16 +22,12 @@ namespace Loja.Application
         public async Task<Item> Get(int ID)
         {
             return await db.Item.Where(c => c.ItemID == ID)
-                .Include(c => c.Order)
-                .Include(c => c.Product)
                 .FirstOrDefaultAsync();
         }
 
         public async Task<Item[]> GetAll(int ID)
         {
             return await db.Item.Where(c => c.Order.OrderID == ID)
-                .Include(c => c.Order)
-                .Include(c => c.Product)
                 .ToArrayAsync();
         }
 

@@ -149,7 +149,9 @@ namespace Loja.Persistency.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Stock = table.Column<int>(nullable: false),
                     Size = table.Column<string>(nullable: true),
-                    ProductID = table.Column<int>(nullable: false)
+                    ProductID = table.Column<int>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    LastModified = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -225,63 +227,63 @@ namespace Loja.Persistency.Migrations
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 1, 1, "42", 9 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "42", 9 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 2, 1, "46", 3 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "46", 3 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 3, 2, "G", 12 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "G", 12 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 4, 2, "P", 5 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "P", 5 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 5, 3, "M", 5 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, "M", 5 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 6, 3, "XXG", 7 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 6, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, "XXG", 7 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 7, 4, "38", 3 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 7, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, "38", 3 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 8, 4, "43", 7 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 8, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, "43", 7 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 9, 5, "41", 3 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 9, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, "41", 3 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 10, 5, "37", 8 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 10, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, "37", 8 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 11, 6, "44", 2 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 11, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, "44", 2 });
 
             migrationBuilder.InsertData(
                 table: "StockSize",
-                columns: new[] { "StockSizeID", "ProductID", "Size", "Stock" },
-                values: new object[] { 12, 6, "38", 3 });
+                columns: new[] { "StockSizeID", "CreatedOn", "LastModified", "ProductID", "Size", "Stock" },
+                values: new object[] { 12, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, "38", 3 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Address_ClientID",

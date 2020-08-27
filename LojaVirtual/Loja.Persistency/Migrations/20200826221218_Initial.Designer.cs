@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Loja.Persistency.Migrations
 {
     [DbContext(typeof(LojaDbContext))]
-    [Migration("20200825140358_Initial")]
+    [Migration("20200826221218_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -178,6 +178,12 @@ namespace Loja.Persistency.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("ProductID")
                         .HasColumnType("INTEGER");
 
@@ -197,6 +203,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 1,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 1,
                             Size = "42",
                             Stock = 9
@@ -204,6 +212,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 2,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 1,
                             Size = "46",
                             Stock = 3
@@ -211,6 +221,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 3,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 2,
                             Size = "G",
                             Stock = 12
@@ -218,6 +230,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 4,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 2,
                             Size = "P",
                             Stock = 5
@@ -225,6 +239,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 5,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 3,
                             Size = "M",
                             Stock = 5
@@ -232,6 +248,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 6,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 3,
                             Size = "XXG",
                             Stock = 7
@@ -239,6 +257,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 7,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 4,
                             Size = "38",
                             Stock = 3
@@ -246,6 +266,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 8,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 4,
                             Size = "43",
                             Stock = 7
@@ -253,6 +275,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 9,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 5,
                             Size = "41",
                             Stock = 3
@@ -260,6 +284,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 10,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 5,
                             Size = "37",
                             Stock = 8
@@ -267,6 +293,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 11,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 6,
                             Size = "44",
                             Stock = 2
@@ -274,6 +302,8 @@ namespace Loja.Persistency.Migrations
                         new
                         {
                             StockSizeID = 12,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductID = 6,
                             Size = "38",
                             Stock = 3
