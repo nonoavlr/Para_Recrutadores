@@ -149,6 +149,104 @@ namespace Loja.Persistency.Migrations
                     b.HasIndex("ProductID");
 
                     b.ToTable("Databases");
+
+                    b.HasData(
+                        new
+                        {
+                            DatabaseID = 1,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/oSriV6C.png",
+                            ProductID = 1
+                        },
+                        new
+                        {
+                            DatabaseID = 2,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/iO8v42u.png",
+                            ProductID = 1
+                        },
+                        new
+                        {
+                            DatabaseID = 3,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/8z9xS93.png",
+                            ProductID = 2
+                        },
+                        new
+                        {
+                            DatabaseID = 4,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/3w7RZNV.png",
+                            ProductID = 2
+                        },
+                        new
+                        {
+                            DatabaseID = 5,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/ggv0I4H.png",
+                            ProductID = 3
+                        },
+                        new
+                        {
+                            DatabaseID = 6,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/QfJf0m3.png",
+                            ProductID = 3
+                        },
+                        new
+                        {
+                            DatabaseID = 7,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/3axAbbW.png",
+                            ProductID = 4
+                        },
+                        new
+                        {
+                            DatabaseID = 8,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/v9NVCwN.png",
+                            ProductID = 4
+                        },
+                        new
+                        {
+                            DatabaseID = 9,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/UL2OVc8.png",
+                            ProductID = 5
+                        },
+                        new
+                        {
+                            DatabaseID = 10,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/1NbHdF5.png",
+                            ProductID = 5
+                        },
+                        new
+                        {
+                            DatabaseID = 11,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/fx3YY5M.png",
+                            ProductID = 6
+                        },
+                        new
+                        {
+                            DatabaseID = 12,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Link = "https://i.imgur.com/bBwzdcR.png",
+                            ProductID = 6
+                        });
                 });
 
             modelBuilder.Entity("Loja.Domain.Item", b =>

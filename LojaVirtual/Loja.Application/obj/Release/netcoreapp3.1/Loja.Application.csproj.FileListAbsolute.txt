@@ -1,0 +1,12 @@
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\bin\Release\netcoreapp3.1\Loja.Application.deps.json
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\bin\Release\netcoreapp3.1\Loja.Application.dll
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\bin\Release\netcoreapp3.1\Loja.Application.pdb
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\bin\Release\netcoreapp3.1\Loja.Domain.dll
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\bin\Release\netcoreapp3.1\Loja.Domain.pdb
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\obj\Release\netcoreapp3.1\Loja.Application.csprojAssemblyReference.cache
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\obj\Release\netcoreapp3.1\Loja.Application.AssemblyInfoInputs.cache
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\obj\Release\netcoreapp3.1\Loja.Application.AssemblyInfo.cs
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\obj\Release\netcoreapp3.1\Loja.Application.csproj.CoreCompileInputs.cache
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\obj\Release\netcoreapp3.1\Loja.Application.csproj.CopyComplete
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\obj\Release\netcoreapp3.1\Loja.Application.dll
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Application\obj\Release\netcoreapp3.1\Loja.Application.pdb

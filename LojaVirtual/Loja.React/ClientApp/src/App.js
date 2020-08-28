@@ -19,7 +19,7 @@ export default function App(){
 
     const fetchItems = () => {
         console.log('passou')
-        fetch('Products')
+        fetch('./data.json')
             .then(res => res.json())
             .then(res => { console.log(res); return res; })
             .then(data => setProducts(data))

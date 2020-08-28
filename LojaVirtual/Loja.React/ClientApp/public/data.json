@@ -1,0 +1,200 @@
+[
+    {
+      "productID": 1,
+      "title": "Calça Jeans Super Pure Strech",
+      "name": "Calça Jeans Strech",
+      "description": "Ótima lavagem, longa duração",
+      "type": "Calça",
+      "gender": "Fem",
+      "price": 50.9,
+      "stockSize": [
+        {
+          "stockSizeID": 1,
+          "size": "42",
+          "stock": 9
+        },
+        {
+          "stockSizeID": 2,
+          "size": "46",
+          "stock": 3
+        }
+      ],
+      "database": [
+        {
+          "databaseID": 1,
+          "type": null,
+          "link": "https://i.imgur.com/oSriV6C.png"
+        },
+        {
+          "databaseID": 2,
+          "type": null,
+          "link": "https://i.imgur.com/iO8v42u.png"
+        }
+      ]
+    },
+    {
+      "productID": 2,
+      "title": "Blusa de Manga Longa",
+      "name": "Blusa Ultra Dry",
+      "description": "Impermeável",
+      "type": "Blusa",
+      "gender": "Masc",
+      "price": 70.5,
+      "stockSize": [
+        {
+          "stockSizeID": 3,
+          "size": "G",
+          "stock": 12
+        },
+        {
+          "stockSizeID": 4,
+          "size": "P",
+          "stock": 5
+        }
+      ],
+      "database": [
+        {
+          "databaseID": 3,
+          "type": null,
+          "link": "https://i.imgur.com/8z9xS93.png"
+        },
+        {
+          "databaseID": 4,
+          "type": null,
+          "link": "https://i.imgur.com/3w7RZNV.png"
+        }
+      ]
+    },
+    {
+      "productID": 3,
+      "title": "Jaqueta Minimalista",
+      "name": "Jaqueta Minimalista Limited Edition",
+      "description": "Alta Costura",
+      "type": "Calça",
+      "gender": "Both",
+      "price": 110.1,
+      "stockSize": [
+        {
+          "stockSizeID": 5,
+          "size": "M",
+          "stock": 5
+        },
+        {
+          "stockSizeID": 6,
+          "size": "XXG",
+          "stock": 7
+        }
+      ],
+      "database": [
+        {
+          "databaseID": 5,
+          "type": null,
+          "link": "https://i.imgur.com/ggv0I4H.png"
+        },
+        {
+          "databaseID": 6,
+          "type": null,
+          "link": "https://i.imgur.com/QfJf0m3.png"
+        }
+      ]
+    },
+    {
+      "productID": 4,
+      "title": "Tennis Vintage",
+      "name": "Tennis Vintage 90'",
+      "description": "Ultra weight",
+      "type": "Calcado",
+      "gender": "Both",
+      "price": 190.5,
+      "stockSize": [
+        {
+          "stockSizeID": 7,
+          "size": "38",
+          "stock": 3
+        },
+        {
+          "stockSizeID": 8,
+          "size": "43",
+          "stock": 7
+        }
+      ],
+      "database": [
+        {
+          "databaseID": 7,
+          "type": null,
+          "link": "https://i.imgur.com/3axAbbW.png"
+        },
+        {
+          "databaseID": 8,
+          "type": null,
+          "link": "https://i.imgur.com/v9NVCwN.png"
+        }
+      ]
+    },
+    {
+      "productID": 5,
+      "title": "Sapatilha Confortável",
+      "name": "Sapatilha Confort Plus",
+      "description": "Confort Plus",
+      "type": "Calcado",
+      "gender": "Fem",
+      "price": 170.9,
+      "stockSize": [
+        {
+          "stockSizeID": 9,
+          "size": "41",
+          "stock": 3
+        },
+        {
+          "stockSizeID": 10,
+          "size": "37",
+          "stock": 8
+        }
+      ],
+      "database": [
+        {
+          "databaseID": 9,
+          "type": null,
+          "link": "https://i.imgur.com/UL2OVc8.png"
+        },
+        {
+          "databaseID": 10,
+          "type": null,
+          "link": "https://i.imgur.com/1NbHdF5.png"
+        }
+      ]
+    },
+    {
+      "productID": 6,
+      "title": "Sapato Social Vegano",
+      "name": "Sapato Social Vegan-Weather",
+      "description": "Ecological",
+      "type": "Calcado",
+      "gender": "Masc",
+      "price": 150.9,
+      "stockSize": [
+        {
+          "stockSizeID": 11,
+          "size": "44",
+          "stock": 2
+        },
+        {
+          "stockSizeID": 12,
+          "size": "38",
+          "stock": 3
+        }
+      ],
+      "database": [
+        {
+          "databaseID": 11,
+          "type": null,
+          "link": "https://i.imgur.com/fx3YY5M.png"
+        },
+        {
+          "databaseID": 12,
+          "type": null,
+          "link": "https://i.imgur.com/bBwzdcR.png"
+        }
+      ]
+    }
+]

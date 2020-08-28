@@ -1,0 +1,9 @@
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Domain\bin\Release\netcoreapp3.1\Loja.Domain.deps.json
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Domain\bin\Release\netcoreapp3.1\Loja.Domain.dll
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Domain\bin\Release\netcoreapp3.1\Loja.Domain.pdb
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Domain\obj\Release\netcoreapp3.1\Loja.Domain.csprojAssemblyReference.cache
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Domain\obj\Release\netcoreapp3.1\Loja.Domain.AssemblyInfoInputs.cache
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Domain\obj\Release\netcoreapp3.1\Loja.Domain.AssemblyInfo.cs
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Domain\obj\Release\netcoreapp3.1\Loja.Domain.csproj.CoreCompileInputs.cache
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Domain\obj\Release\netcoreapp3.1\Loja.Domain.dll
+C:\Users\nohanlisboa\Documents\Para_Recrutadores\LojaVirtual\Loja.Domain\obj\Release\netcoreapp3.1\Loja.Domain.pdb

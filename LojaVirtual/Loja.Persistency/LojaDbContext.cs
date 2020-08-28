@@ -99,7 +99,7 @@ namespace Loja.Persistency
                 .HasForeignKey(c => c.ProductID);
             #endregion
 
-            //From Start
+            //Seed<Client>
             #region
             builder.Entity<Client>().HasData(new Client[]
                 {
@@ -113,7 +113,10 @@ namespace Loja.Persistency
                     }
                 }
             );
+            #endregion
 
+            //Seed<StockSize>
+            #region
             builder.Entity<StockSize>().HasData( new StockSize[]
                 {
                     new StockSize()
@@ -214,7 +217,102 @@ namespace Loja.Persistency
 
                 }
             );
+            #endregion
 
+            //Seed<Database>
+            #region
+            builder.Entity<Database>().HasData(new Database[]
+            {
+                    new Database()
+                    {
+                        DatabaseID = 1,
+                        ProductID = 1,
+                        Link = "https://i.imgur.com/oSriV6C.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 2,
+                        ProductID = 1,
+                        Link = "https://i.imgur.com/iO8v42u.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 3,
+                        ProductID = 2,
+                        Link = "https://i.imgur.com/8z9xS93.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 4,
+                        ProductID = 2,
+                        Link = "https://i.imgur.com/3w7RZNV.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 5,
+                        ProductID = 3,
+                        Link = "https://i.imgur.com/ggv0I4H.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 6,
+                        ProductID = 3,
+                        Link = "https://i.imgur.com/QfJf0m3.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 7,
+                        ProductID = 4,
+                        Link = "https://i.imgur.com/3axAbbW.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 8,
+                        ProductID = 4,
+                        Link = "https://i.imgur.com/v9NVCwN.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 9,
+                        ProductID = 5,
+                        Link = "https://i.imgur.com/UL2OVc8.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 10,
+                        ProductID = 5,
+                        Link = "https://i.imgur.com/1NbHdF5.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 11,
+                        ProductID = 6,
+                        Link = "https://i.imgur.com/fx3YY5M.png",
+                    },
+
+                    new Database()
+                    {
+                        DatabaseID = 12,
+                        ProductID = 6,
+                        Link = "https://i.imgur.com/bBwzdcR.png",
+                    },
+
+                    
+            });
+            #endregion
+
+            //Seed<Product>
+            #region
             builder.Entity<Product>().HasData(new Product[]
             {
                     new Product(){

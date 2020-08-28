@@ -34,7 +34,7 @@ namespace Loja.React.Controllers
         public async Task<IActionResult> Get(int id)
         {
             var p = await productHandler.Get(id);
-            var stockSize = await stockSizeHandler.GetAll(1);
+            var stocksize = await stockSizeHandler.GetAll(1);
             var database = await databaseHandler.GetAll(1);
 
             return new JsonResult(
@@ -47,7 +47,7 @@ namespace Loja.React.Controllers
                     p.Type,
                     p.Gender,
                     p.Price,
-                    StockSize =  stockSize
+                    z =  stocksize
                                  .Where(c => c.ProductID == p.ProductID)
                                  .Select(c =>
                                     new
@@ -57,7 +57,7 @@ namespace Loja.React.Controllers
                                         c.Stock,
                                     }
                                  ),
-                    Database = database
+                    x = database
                                .Where(c => c.ProductID == p.ProductID)
                                .Select(c =>
                                    new

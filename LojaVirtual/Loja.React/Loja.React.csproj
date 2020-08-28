@@ -7,6 +7,7 @@
     <IsPackable>false</IsPackable>
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+    <UserSecretsId>24725a39-2d82-473f-b98d-0c65d9a7106c</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,18 +29,18 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\public\Feminino\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\public\Feminino\**" />
+    <EmbeddedResource Remove="ClientApp\public\Feminino\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\public\Feminino\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Loja.Application\Loja.Application.csproj" />
     <ProjectReference Include="..\Loja.Persistency\Loja.Persistency.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\public\Feminino\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
