@@ -1,0 +1,33 @@
+{
+  "productID": 1,
+  "title": "Calça Jeans Super Pure Strech",
+  "name": "Calça Jeans Strech",
+  "description": "Ótima lavagem, longa duração",
+  "type": "Calça",
+  "gender": "Fem",
+  "price": 50.9,
+  "stocksize": [
+    {
+      "stockSizeID": 1,
+      "size": "42",
+      "stock": 9
+    },
+    {
+      "stockSizeID": 2,
+      "size": "46",
+      "stock": 3
+    }
+  ],
+  "database": [
+    {
+      "databaseID": 1,
+      "type": null,
+      "link": "https://i.imgur.com/oSriV6C.png"
+    },
+    {
+      "databaseID": 2,
+      "type": null,
+      "link": "https://i.imgur.com/iO8v42u.png"
+    }
+  ]
+}

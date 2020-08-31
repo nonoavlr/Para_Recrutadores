@@ -41,33 +41,32 @@ namespace Loja.React.Controllers
                 new
                 {
                     p.ProductID,
-                    p.Title,
-                    p.Name,
-                    p.Description,
-                    p.Type,
-                    p.Gender,
-                    p.Price,
-                    z =  stocksize
-                                 .Where(c => c.ProductID == p.ProductID)
-                                 .Select(c =>
-                                    new
-                                    {
-                                        c.StockSizeID,
-                                        c.Size,
-                                        c.Stock,
-                                    }
-                                 ),
-                    x = database
-                               .Where(c => c.ProductID == p.ProductID)
-                               .Select(c =>
-                                   new
-                                   {
-                                       c.DatabaseID,
-                                       c.Type,
-                                       c.Link
-                                   }
-                               )
-                    
+                        p.Title,
+                        p.Name,
+                        p.Description,
+                        p.Type,
+                        p.Gender,
+                        p.Price,
+                        Stocksize =  stocksize
+                                     .Where(c => c.ProductID == p.ProductID)                               
+                                     .Select(c =>
+                                        new
+                                        {
+                                            c.StockSizeID,
+                                            c.Size,
+                                            c.Stock,
+                                        }
+                                     ),
+                        Database = database
+                                   .Where(c => c.ProductID == p.ProductID)
+                                   .Select(c =>
+                                       new
+                                       {
+                                           c.DatabaseID,
+                                           c.Type,
+                                           c.Link
+                                       }
+                                   )
                 }
 
             );
@@ -78,12 +77,12 @@ namespace Loja.React.Controllers
         public async Task<IActionResult> Get()
         {
             var products = await productHandler.GetAll(1);
-            var stockSize = await stockSizeHandler.GetAll(1);
+            var stocksize = await stockSizeHandler.GetAll(1);
             var database = await databaseHandler.GetAll(1);
 
             return new JsonResult(
-                products.Select(p => 
-                    new 
+                products.Select(p =>
+                    new
                     {
                         p.ProductID,
                         p.Title,
@@ -92,7 +91,7 @@ namespace Loja.React.Controllers
                         p.Type,
                         p.Gender,
                         p.Price,
-                        StockSize = stockSize
+                        Stocksize = stocksize
                                     .Where(c => c.ProductID == p.ProductID)
                                     .Select(c =>
                                         new
@@ -112,7 +111,7 @@ namespace Loja.React.Controllers
                                            c.Link
                                        }
                                    )
-                    }
+                   }
                  )
             );
         }

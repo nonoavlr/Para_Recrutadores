@@ -1,0 +1,18 @@
+.item_layout{
+    display: flex;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 10%;
+    
+}
+
+.item_carousel{
+    width: 300px;
+    padding: 5px;
+}
+
+.item_form{
+    font-size: 20px;
+}
+
+
