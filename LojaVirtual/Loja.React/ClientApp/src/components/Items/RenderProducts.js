@@ -1,4 +1,4 @@
-﻿import React, {useContext, useState } from 'react';
+﻿import React, { useContext } from 'react';
 import ProductContext from '../../ProductContext';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel'
@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export function RenderProducts({ gender }){
 
-    const { products, setProducts } = useContext(ProductContext);
+    const { products } = useContext(ProductContext);
 
     const filterByGender = gender => arr => arr.gender === gender || arr.gender === 'Both';
 
@@ -26,14 +26,14 @@ export function RenderProducts({ gender }){
                                                     {
                                                         item.database.map(i => {
                                                             return (
-                                                                    <Carousel.Item key={i.databaseID} bsPrefix='carousel-item'>
-                                                                        <img
-                                                                        className="d-block w-100"
-                                                                        src={i.link}
-                                                                        alt={item.title}
-                                                                        />
-                                                                    </Carousel.Item>
-                                                                )
+                                                                <Carousel.Item key={i.databaseID} bsPrefix='carousel-item'>
+                                                                    <img
+                                                                    className="d-block w-100"
+                                                                    src={i.link}
+                                                                    alt={item.title}
+                                                                    />
+                                                                </Carousel.Item>
+                                                            )
                                                         })
                                                     }
                                                 </Carousel>

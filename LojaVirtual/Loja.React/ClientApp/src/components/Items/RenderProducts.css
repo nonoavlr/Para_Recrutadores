@@ -5,4 +5,5 @@
 
 .items_vitrine_ul{
     display: flex;
+    flex-flow: wrap;
 }

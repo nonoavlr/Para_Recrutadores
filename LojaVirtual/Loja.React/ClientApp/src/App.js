@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductContext from './ProductContext'
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
@@ -16,7 +16,7 @@ import './custom.css'
 export default function App(){
 
     const [products, setProducts] = useState();
-    const [cart, setCart] = useState();
+    const [cart, setCart] = useState([])
 
     const fetchItems = () => {
         fetch('./data.json')
@@ -35,7 +35,9 @@ export default function App(){
             <ProductContext.Provider value={{products, setProducts, cart, setCart}}>
                 <Route exact path='/' component={Home} />
                 <Route path='/About' component={About} />
-                <Route path='/Cart' component={Cart} />
+                <Route path='/Cart'>
+                    <Cart/>
+                </Route>
                 <Route path='/Feminino'>
                     <RenderProducts gender='Fem' />
                 </Route>
@@ -45,7 +47,9 @@ export default function App(){
                 <Route path='/off-price' component={OffPrice} />
                 <Route path='/Login' component={Entrar}/>
                 <Route path='/Register' component={Registrar} />
-                <Route path='/Item/:itemID' component={RenderItem} />
+                <Route path='/Item/:itemID'>
+                    <RenderItem/>
+                </Route>
             </ProductContext.Provider>
         </Layout>
     );
